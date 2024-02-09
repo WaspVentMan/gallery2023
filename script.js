@@ -1,45 +1,71 @@
 const frame = document.querySelector(".frame")
 const title = document.querySelector(".title")
 const dbutt = document.querySelector(".deltabutton")
+const favicon = document.querySelector(".favicon")
+const splash = document.querySelector(".splash")
+
+let looming = []
+
+let splashes = [
+    "MADE WIH HATE, NOT LOVE",
+    "PORGAMING :)",
+    "IMAGE UNLOADING?",
+    "WASPVENTMAN.CO.UK",
+    "UNINSTALLING ANTIMATTER DIMENSIONS",
+    "404",
+    "PIPEBOMB + MAILBOX = ?",
+    "OOPS, ALL SPLASHES",
+    "WHAT IS THIS 'JS' YOU SPEAK OF?",
+    "HELP! I LOST THE SPLASH TEXT!",
+    "TEST? TEST?! TEEEEEEEST!",
+    "HOLY CRAP IT'S THE GUY FROM FORTNITE!",
+    "BEST VALUE!",
+    "LSSB IS DEAD?!",
+    "O100 IS DEAD?!",
+    "WDBM IS DEAD?!",
+    "SAT IS DONE?!",
+    "ALL THE ART CAN BE FOUND ON MY NEWGROUNDS PAGE!",
+    "WASPVENTMAN.NEWGROUNDS.COM"
+]
 
 let titles = {
     "0"  : "Celestial Blanket",
-    "1"  : "TEST",
-    "2"  : "TEST",
-    "3"  : "TEST",
-    "4"  : "TEST",
-    "5"  : "TEST",
+    "1"  : "N/A",
+    "2"  : "N/A",
+    "3"  : "N/A",
+    "4"  : "N/A",
+    "5"  : "N/A",
     "6"  : "If You Cut Down A Tree And Look At The Rings, You Can See How Old It Is!",
-    "7"  : "TEST",
-    "8"  : "TEST",
-    "9"  : "TEST",
-    "10" : "TEST",
-    "11" : "TEST",
-    "12" : "TEST",
-    "13" : "TEST",
-    "14" : "TEST",
-    "15" : "TEST",
-    "16" : "TEST",
-    "17" : "TEST",
-    "18" : "TEST",
-    "19" : "TEST",
-    "21" : "TEST",
-    "22" : "TEST",
+    "7"  : "N/A",
+    "8"  : "N/A",
+    "9"  : "N/A",
+    "10" : "N/A",
+    "11" : "N/A",
+    "12" : "N/A",
+    "13" : "N/A",
+    "14" : "N/A",
+    "15" : "N/A",
+    "16" : "N/A",
+    "17" : "N/A",
+    "18" : "N/A",
+    "19" : "N/A",
+    "21" : "N/A",
+    "22" : "N/A",
     "23" : "If Something Travelled Faster Than The Speed Of Light, Would You See It Coming?",
-    "24" : "TEST",
-    "25" : "TEST",
-    "26" : "TEST",
-    "27" : "TEST",
-    "28" : "TEST",
-    "29" : "TEST",
-    "30" : "TEST",
-    "31" : "TEST",
-    "32" : "TEST",
-    "33" : "TEST",
-    "34" : "TEST",
-    "35" : "TEST",
-    "36" : "TEST",
-    "37" : "TEST",
+    "24" : "N/A",
+    "25" : "N/A",
+    "26" : "N/A",
+    "27" : "N/A",
+    "28" : "N/A",
+    "29" : "N/A",
+    "30" : "N/A",
+    "31" : "N/A",
+    "32" : "N/A",
+    "33" : "N/A",
+    "34" : "N/A",
+    "35" : "N/A",
+    "36" : "N/A",
+    "37" : "N/A",
     "38" : "Monolith",
     "39a": "Hag's Delerium: Phase 1",
     "39b": "Hag's Delerium: Phase 2",
@@ -97,15 +123,22 @@ function change(pm, pmdelta = 0, anim = true){
 
     for (let x = 0; x < blist.length; x++){blist[x].setAttribute("disabled", "true")}
 
+    splash.textContent = splashes[Math.round(Math.random()*(splashes.length-1))].toUpperCase()
+
+    document.title = "WVM2023: " + titles[img]
+
     if (!anim){
-        frame.style.animation = "ash 1s ease-out"; title.style.animation = "ash 0.5s ease-out"
-        frame.src = "img/" + img + ".png"; title.textContent = titles[img]
+        frame.style.animation = "ash 0.5s ease-in-out"; title.style.animation = "ash 0.5s ease-in-out"
+
+        frame.src = "img/" + img + ".png"; title.textContent = titles[img]; favicon.href = "img/" + img + ".png"
         setTimeout(function(){frame.style.animation = ""; title.style.animation = ""; for (let x = 0; x < blist.length; x++){blist[x].removeAttribute("disabled")}}, 500)
+        
         return
     }
 
     frame.style.animation = "flash 1s ease-in-out"; title.style.animation = "flash 1s ease-in-out"
-    setTimeout(function(){frame.src = "img/" + img + ".png"; title.textContent = titles[img]}, 500)
+
+    setTimeout(function(){frame.src = "img/" + img + ".png"; title.textContent = titles[img]; favicon.href = "img/" + img + ".png"}, 500)
     setTimeout(function(){frame.style.animation = ""; title.style.animation = ""; for (let x = 0; x < blist.length; x++){blist[x].removeAttribute("disabled")}}, 1000)
 }
 
