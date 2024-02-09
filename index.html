@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaspVentMan Art Gallery 2023</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="text-align: center; margin: 0%; background-color: black;">
+    <div class="container">
+        <div class="vertical-center">
+            <h1 style="margin: 0; color: white; font-variation-settings: 'wdth' 1000, 'wght' 1000;">WASPVENTMAN'S 2023 ART</h1>
+            <img class="frame" src="img/0.png" alt="artwork" style="max-height: 800px; display: inline-block;">
+            <h1 class="title" style="margin: 0; color: white;">PIECE TITLE!</h1>
+        </div>
+    </div>
+
+    <button class="buttonL" onclick="change(-1)" style="position: absolute; top: 25%; height: 50%; left: 0%;">←</button>
+    <button class="buttonR" onclick="change(1)" style="position: absolute; top: 25%; height: 50%; right: 0%;">→</button>
+
+    <div class="deltabutton">
+        <button class="buttonD" onclick="change(0, -1)" style="position: absolute; bottom: 0%; width: 25%; left: 37.5%;">↓</button>
+        <button class="buttonU" onclick="change(0, 1)" style="position: absolute; top: 0%; width: 25%; left: 37.5%;">↑</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

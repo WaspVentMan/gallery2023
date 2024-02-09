@@ -1,0 +1,64 @@
+@font-face {
+    font-family: HeadingNowVariable;
+    font-style: normal;
+    font-stretch: normal;
+    font-display: swap;
+    src: url(font/HeadingNowVariable-IJONJUZC.woff2) format("woff2");
+}
+
+.container {
+    height: 100vh;
+    position: relative;
+}
+  
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+* {
+    font-family: 'HeadingNowVariable', monospace;
+    font-weight: 700;
+    font-variation-settings: "wdth" 300, "wght" 700;
+}
+
+@keyframes flash {
+    0%   {filter: opacity(1) blur(0px)}
+    50%  {filter: opacity(0) blur(5px)}
+    100% {filter: opacity(1) blur(0px)}
+}
+
+@keyframes ash {
+    0%   {filter: opacity(0) blur(5px)}
+    100% {filter: opacity(1) blur(0px)}
+}
+
+button {
+    outline: none;
+    border: none;
+    color: white;
+    font-size: x-large;
+    font-family: monospace;
+
+    transition: opacity 1s;
+}
+
+.buttonL {
+    background: linear-gradient(90deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 100%);
+}
+
+.buttonR {
+    background: linear-gradient(-90deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 100%);
+}
+
+.buttonD {
+    background: linear-gradient(0deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 100%);
+}
+
+.buttonU {
+    background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 100%);
+}
