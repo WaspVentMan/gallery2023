@@ -57,26 +57,42 @@
     <link rel="prefetch" href="img/41.png"/>
     <link rel="prefetch" href="img/42.png"/>
     <link rel="prefetch" href="img/43.png"/>
+
+    <link rel="prefetch" href="mp3/loom1.mp3"/>
+    <link rel="prefetch" href="mp3/loom2.mp3"/>
+    <link rel="prefetch" href="mp3/loom3.mp3"/>
+    <link rel="prefetch" href="mp3/loom4.mp3"/>
+    <link rel="prefetch" href="mp3/loom5.mp3"/>
+    <link rel="prefetch" href="mp3/loom6.mp3"/>
+    <link rel="prefetch" href="mp3/loom7.mp3"/>
+    <link rel="prefetch" href="mp3/loom8.mp3"/>
+    <link rel="prefetch" href="mp3/fart-with-reverb.mp3"/>
 </head>
 <body style="text-align: center; margin: 0%; background-color: black;">
-    <div class="container">
-        <div class="vertical-center">
-            <h1 style="margin: 0; color: white; font-variation-settings: 'wdth' 1000, 'wght' 1000;">WASPVENTMAN'S 2023 ART</h1>
-            <img class="frame" src="img/0.png" alt="artwork" style="max-width: 800px; display: inline-block;">
+    <div style="max-width: 800px; margin: auto;">
+        <div class="container">
+            <h1 style="margin: 0; color: white; font-variation-settings: 'wdth' 1000, 'wght' 1000; font-size: 2.5vw;">WASPVENTMAN'S 2023 ART</h1>
+            
+            <div style="display: flex;">
+                <button style="width: 5%; margin-right: -5%; z-index: 1;" class="buttonL" onclick="change(-1)">←</button>
+                <img class="frame" src="img/0.png" alt="artwork" style="width: 100%">
+                <button style="width: 5%; margin-left: -5%; z-index: 1;" class="buttonR" onclick="change(1)">→</button>
+            </div>
+           
             <h1 class="title" style="margin: 0; color: white;">Celestial Blanket</h1>
         </div>
+    
+        <div class="deltabutton" style="margin: auto; width: 100%; font-size: 0; height: auto;">
+            <button style="width: 100%; height: 50%;" class="buttonU" onclick="change(0, 1)">↑</button><br>
+            <button style="width: 100%; height: 50%;" class="buttonD" onclick="change(0, -1)">↓</button>
+        </div>
+
+        <br><br>
+
+        <a href="./mp3">SPECIAL FEATURES</a><br>
+        <a href="./credits">CREDITS</a>
     </div>
-
-    <i class="splash" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: -1; color: darkgray;"></i>
-
-    <button class="buttonL" onclick="change(-1)" style="position: absolute; top: 0%; height: 100%; left: 0%;">←</button>
-    <button class="buttonR" onclick="change(1)" style="position: absolute; top: 0%; height: 100%; right: 0%;">→</button>
-
-    <div class="deltabutton">
-        <button class="buttonD" onclick="change(0, -1)" style="position: absolute; bottom: 0%; width: 100%; left: 0%;">↓</button>
-        <button class="buttonU" onclick="change(0, 1)" style="position: absolute; top: 0%; width: 100%; left: 0%;">↑</button>
-    </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>

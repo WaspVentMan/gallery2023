@@ -2,9 +2,18 @@ const frame = document.querySelector(".frame")
 const title = document.querySelector(".title")
 const dbutt = document.querySelector(".deltabutton")
 const favicon = document.querySelector(".favicon")
-const splash = document.querySelector(".splash")
 
-let looming = []
+let loomindex = 0
+let looming = [
+    new Audio('mp3/loom1.mp3'),
+    new Audio('mp3/loom2.mp3'),
+    new Audio('mp3/loom3.mp3'),
+    new Audio('mp3/loom4.mp3'),
+    new Audio('mp3/loom5.mp3'),
+    new Audio('mp3/loom6.mp3'),
+    new Audio('mp3/loom7.mp3'),
+    new Audio('mp3/loom8.mp3')
+]
 
 let splashes = [
     "MADE WIH HATE, NOT LOVE",
@@ -30,42 +39,42 @@ let splashes = [
 
 let titles = {
     "0"  : "Celestial Blanket",
-    "1"  : "N/A",
-    "2"  : "N/A",
-    "3"  : "N/A",
-    "4"  : "N/A",
-    "5"  : "N/A",
+    "1"  : "A Window Into A Void",
+    "2"  : "Chess Board At The End Of The World",
+    "3"  : "Please Do Not Tap On The Glass",
+    "4"  : "Quarters Of A Downward Spiral",
+    "5"  : "Kaleidoscope Telescope",
     "6"  : "If You Cut Down A Tree And Look At The Rings, You Can See How Old It Is!",
-    "7"  : "N/A",
-    "8"  : "N/A",
-    "9"  : "N/A",
-    "10" : "N/A",
-    "11" : "N/A",
-    "12" : "N/A",
-    "13" : "N/A",
-    "14" : "N/A",
-    "15" : "N/A",
-    "16" : "N/A",
-    "17" : "N/A",
-    "18" : "N/A",
-    "19" : "N/A",
-    "21" : "N/A",
-    "22" : "N/A",
+    "7"  : "That Block Game",
+    "8"  : "Deeper, Yet Deeper",
+    "9"  : "Something Has Gone Very, Very Wrong...",
+    "10" : "Some Things Never Change",
+    "11" : "The Forgotten Well",
+    "12" : "The Land At The End Of Tomorrow",
+    "13" : "The First Summoning",
+    "14" : "In Memoriam Of Lost Media",
+    "15" : "Depth Charge",
+    "16" : "Two Sides Of The Same Coin",
+    "17" : "Cover Yourself In Oil And Try Smoke A Cigarette",
+    "18" : "Fractal Delusions Are Set Upon Thee By Signs Sent From A False Prophet",
+    "19" : "Neglecting The Third Dimension For Too Long",
+    "21" : "Blooming, Perhaps For The Last Time",
+    "22" : "Repetition Gets Annoying After A While",
     "23" : "If Something Travelled Faster Than The Speed Of Light, Would You See It Coming?",
-    "24" : "N/A",
-    "25" : "N/A",
-    "26" : "N/A",
-    "27" : "N/A",
-    "28" : "N/A",
-    "29" : "N/A",
-    "30" : "N/A",
-    "31" : "N/A",
-    "32" : "N/A",
-    "33" : "N/A",
-    "34" : "N/A",
-    "35" : "N/A",
-    "36" : "N/A",
-    "37" : "N/A",
+    "24" : "Sleep Deprivation Deluxe",
+    "25" : "SCOUTED!",
+    "26" : "Budget Static",
+    "27" : "Finger Painting",
+    "28" : "Sparkling Tiles",
+    "29" : "Strange Plane",
+    "30" : "Spectating The Extinction Of The Earth",
+    "31" : "Watch Planets Collide Amidst An Infinite Void",
+    "32" : "Demantoid Draughts",
+    "33" : "CPU Overheat",
+    "34" : "Digital Vines",
+    "35" : "Influenced Delusion",
+    "36" : "Pseudoscience",
+    "37" : "Oil Slick Cathode-Ray Tube",
     "38" : "Monolith",
     "39a": "Hag's Delerium: Phase 1",
     "39b": "Hag's Delerium: Phase 2",
@@ -88,7 +97,7 @@ let delta = 39
 let cursor = 0
 let cursordelta = 0
 
-function change(pm, pmdelta = 0, anim = true){
+function change(pm, pmdelta = 0){
     if (cursor+pm < 0){
         cursor = 44
     } else if (cursor+pm >= works){
@@ -123,23 +132,20 @@ function change(pm, pmdelta = 0, anim = true){
 
     for (let x = 0; x < blist.length; x++){blist[x].setAttribute("disabled", "true")}
 
-    splash.textContent = splashes[Math.round(Math.random()*(splashes.length-1))].toUpperCase()
+    //splash.textContent = splashes[Math.round(Math.random()*(splashes.length-1))].toUpperCase()
 
     document.title = "WVM2023: " + titles[img]
 
-    if (!anim){
-        frame.style.animation = "ash 0.5s ease-in-out"; title.style.animation = "ash 0.5s ease-in-out"
+    frame.style.animation = "ash 2s ease-out"; title.style.animation = "ash 2s ease-out"
 
-        frame.src = "img/" + img + ".png"; title.textContent = titles[img]; favicon.href = "img/" + img + ".png"
-        setTimeout(function(){frame.style.animation = ""; title.style.animation = ""; for (let x = 0; x < blist.length; x++){blist[x].removeAttribute("disabled")}}, 500)
-        
-        return
+    looming[loomindex].play()
+    loomindex += 1
+
+    if (loomindex > looming.length-1){
+        loomindex = 0
     }
 
-    frame.style.animation = "flash 1s ease-in-out"; title.style.animation = "flash 1s ease-in-out"
-
-    setTimeout(function(){frame.src = "img/" + img + ".png"; title.textContent = titles[img]; favicon.href = "img/" + img + ".png"}, 500)
-    setTimeout(function(){frame.style.animation = ""; title.style.animation = ""; for (let x = 0; x < blist.length; x++){blist[x].removeAttribute("disabled")}}, 1000)
+    frame.src = "img/" + img + ".png"; title.textContent = titles[img]; favicon.href = "img/" + img + ".png"
+    setTimeout(function(){frame.style.animation = ""; title.style.animation = ""; for (let x = 0; x < blist.length; x++){blist[x].removeAttribute("disabled")}}, 2000)
 }
 
-change(0, 0, false)
