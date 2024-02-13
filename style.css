@@ -13,23 +13,26 @@
 }
 
 @keyframes ash {
-    0%   {filter: invert(0.5)}
-    100% {filter: invert(0)}
+    0%   {filter: invert(0.5) brightness(2)}
+    100% {filter: invert(0) brightness(1)}
 }
 
 button {
     padding: 0%;
     border: none;
+    background-color: #111;
+    color: white;
+
+    border-radius: 100px;
+
+    transition: all 0.25s;
 }
 
-.buttonR {
-    background: linear-gradient(-90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-}
-
-.buttonL {
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+button:hover {
+    background-color: white;
+    color: black;
 }
 
 .deltabutton {
-    transition: opacity 1s;
+    transition: width 2s;
 }
